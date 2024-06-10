@@ -1,15 +1,24 @@
+# docker run - first argument on cmd
 services:
   postgres:
+#    --name postgres-sql
     container_name: postgres-sql
+    # postgress last argument on cmd
     image: postgres
     environment:
+#      -e POSTGRES_USER: username
       POSTGRES_USER: username
+#      -e POSTGRES_PASSWORD: password
       POSTGRES_PASSWORD: password
+#      -e POSTGRES_DB: demo_db
       POSTGRES_DB: demo_db
+#   -p 5432:5432 - Host:Container port
     ports:
       - "5432:5432"
+#   -v postgres:/var/lib/postgres/data
     volumes:
       - postgres:/var/lib/postgres/data
+# --net spring-boot-network
     networks:
       - spring-boot-network
 
